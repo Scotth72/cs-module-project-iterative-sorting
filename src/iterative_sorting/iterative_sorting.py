@@ -2,19 +2,18 @@
 def selection_sort(arr):
     # loop through n-1 elements
     for i in range(0, len(arr) - 1):
-        cur_index = i
-        smallest_index = cur_index
+        sorted_bondary = i
+        smallest_index = sorted_bondary
         # TO-DO: find next smallest element
         # (hint, can do in 3 loc)
         # Your code here
-        for x in range(i+1, len(arr)):
-            if arr[x] < arr[cur_index]:
-                x = smallest_index
-            if i != smallest_index:
-                arr[i], arr[smallest_index] = arr[smallest_index], arr[i]
+        for unsorted_index in range(sorted_bondary, len(arr)):
+            if arr[unsorted_index] < arr[smallest_index]:
+                smallest_index = unsorted_index
 
         # TO-DO: swap
         # Your code here
+        arr[smallest_index], arr[sorted_bondary] = arr[sorted_bondary], arr[smallest_index]
 
     return arr
 
@@ -22,8 +21,30 @@ def selection_sort(arr):
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # Your code here
+    swaps_occurred = True
+    while swaps_occurred:
+        swaps_occurred = False
+
+        for i in range(0, len(arr)-1):
+            if arr[i] > arr[i+1]:
+                arr[i], arr[i+1] = arr[i+1], arr[i]
+                swaps_occurred = True
 
     return arr
+#     for i in range(0, unsorted_length -1):
+#         if arr[i] > arr[i+1]:
+#             arr[i], arr[i+1] = arr[i+1], arr[i]
+
+#     if unsorted_length > 0:
+#         bubble_sort(arr, unsorted_length - 1)
+
+# # recurisve implementation of bubble sort
+
+# arr = [4,3,67,34,29,30,2,15,6]
+
+# bubble_sort(arr, len(arr))
+
+# print(arr)
 
 
 '''
